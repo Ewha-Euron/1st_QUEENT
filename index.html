@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Queent</title>
+  <link rel="stylesheet" type="text/css" href="styles.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<style> 
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+ 
+</style>
+
+<body>
+  <header>
+      <nav>
+        <ul>
+          <li class="nav__nav">
+            <div class="nav__menu"; style = " font-size:1.4em";><i class="fas fa-th"></i></div>
+          </li>
+          <li class="nav__nav">
+            <div class="nav__menu">Queent</div>
+          </li>
+          <li class="nav__amazon"; style = " font-size:2em";><a href="#">Amazon</a></li>
+        </ul>
+      </nav>
+  </header>
+
+  <div id="body-wrapper">
+    <div id="body-content">
+    <!-- header, footer 제외 body 자리 -->
+    <section>
+      <div class="item"; style="justify-content: center;">
+        <div class = 'graph'>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+          <canvas id="line-chart" width="300vh" height="160vh"></canvas>
+        </div>
+    
+        <div class="flex-container column">
+          <div class = 'accuracy'>
+            Accuracy
+          </div>
+          <div class ='accuracy_percent'>
+            77%
+          </div>
+          <div class ='closed_price'>
+            _월_일의 종가가 궁금하세요? <br>
+            <i class="fas fa-long-arrow-alt-right"></i> _월 _일의 종가는 __$로 예상됩니다. </br>
+          </div>
+        </div>  
+      </div>
+    </section>
+
+    <section>
+      <div class="item" data-aos="fade-up" id="email">      
+        <form action="./subscribe.do" method="post">
+        <p>예상 가격이 
+          <input type="text" id="price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>$ 
+          <label class="button upper"><input type="radio" name="cp_item" value="upper" checked="checked"><span>이상</span></label>
+          <label class="button lower"><input type="radio" name="cp_item" value="lower" checked="checked"><span>이하</span></label>
+          이면 알림을 받습니다.<br><br><br>
+          <label for="email_address">알림을 받을 이메일을 입력해주세요 : </label><br><br>
+          <input type="email" id="email_address" name="email_address" placeholder="Email"
+          pattern=".+@globex\.com" required/>
+          <input type="submit" value="OK"> </p> 
+        </form>
+    </div>
+    </section>
+
+
+      <!--스크롤 애니메이션 구현-->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1500,
+      })
+    </script>
+      <!--스크롤 애니메이션 구현 자리 끝-->
+
+    </div>
+    <!-- header, footer 제외 body 자리 끝 -->  
+
+    <footer class="footer">
+      <p>
+        <span> To Subscribe, contact : Queent@gmail.com </span>
+      </p>
+    </footer>
+  </div>
+
+</body>
+</html>
