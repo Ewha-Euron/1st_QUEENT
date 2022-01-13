@@ -1,6 +1,7 @@
-const N = 2541; // len(closed price)-1 
+const N = 2541; // len(date)-1 
 let arr = new Array(N).fill(null);
-arr.push(5000); // predict 값
+arr.push(3581); // predict 값
+
 //arr[arr.length-2]=null;
 
 var line = {
