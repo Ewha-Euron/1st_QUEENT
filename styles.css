@@ -76,9 +76,8 @@ section {
   display: flex;
   flex-direction: column;
   position: absolute;
-  right: 15%;
+  right: 5%;
   top: 30%;  
-  
 }
 
 .body-wrapper {
@@ -100,7 +99,7 @@ section {
 }
 
 .graph{
-  width : 70%;
+  width : 60%;
   height : 50%;
   min-width:20%;
   max-width : 60%;
@@ -217,5 +216,3 @@ footer p span {
     margin-left: 20px;
     margin-bottom: 10px;
 }
-
-
