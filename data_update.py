@@ -1,14 +1,15 @@
 import pandas as pd
 import yfinance as yf
 from yfinance import shared
-from datetime import datetime
+from datetime import date, timedelta
 
 def updates():
     #기존 데이터 주소 입력!!!!
     df = pd.read_csv("./preprocessed_data.csv")
     # 당일 데이터 저장
-    date = datetime.today().strftime('%Y.%m.%d')
-    date_for_download = datetime.today().strftime('%Y-%m-%d')
+    yesterday = date.today() - timedelta(1)
+    date = yesterday.strftime('%Y.%m.%d')
+    date_for_download = yesterday.strftime('%Y-%m-%d')
 
     li = yf.download(['AAPL', 'AMZN','^IXIC','^NYA','^GSPC','^FTSE','^BSESN','^RUT','000001.SS','CL=F','GC=F','^VIX','DX=F','GOOG','MSFT'],start = date_for_download)
     
