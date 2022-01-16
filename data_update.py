@@ -2,6 +2,9 @@ import pandas as pd
 import yfinance as yf
 from yfinance import shared
 from datetime import date, timedelta
+import crud
+from sqlalchemy.orm import Session
+
 
 def updates():
     #기존 데이터 주소 입력!!!!
@@ -106,6 +109,7 @@ def updates():
     row = {'Date':date, 'Open':amzn_open, 'High':amzn_High, 'Low':amzn_Low, 'Close':amzn_Close, 'Volume':amzn_Volume, 'NASDAQ':nasdaq, 'NYSE':nyse,'S&P 500':snp, 'FTSE100':ftse, 'BSE SENSEX':bse, 'RUSSELL2000':russell, 'SSE':sse, 'Crude Oil':oil,'Gold':gold, 'VIX':vix, 'USD index':usd, 'Apple':appl, 'Google':google, 'Microsoft':msft}
 
     df=df.append(row, ignore_index=True)
+    crud.create_stock(db: Session, price: float(amzn_Close))
 
     #저장하고싶은 파일 이름 저장
     df.to_csv('./preprocessed_data.csv',index = False)
